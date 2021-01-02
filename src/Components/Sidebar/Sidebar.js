@@ -9,11 +9,15 @@ import PeopleIcon from '@material-ui/icons/People'
 import StorefrontIcon from '@material-ui/icons/Storefront'
 import  { ExpandMoreOutlined } from '@material-ui/icons/'
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
+import { useStateValue } from '../../StateProvider/StateProvider'
 
 function Sidebar() {
+
+    const [{ user }, dispatch] = useStateValue() 
+
     return (
         <div className="sidebar">
-            <SidebarRow src='https://avatars3.githubusercontent.com/u/62048657?s=460&u=8a5d6c9f11e1d288cc9e8c2465838b916a0c66f6&v=4' title='Gustavo' />            
+            <SidebarRow src={user.photoURL} title={user.displayName} />            
             
             <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />    
 
